@@ -21,3 +21,5 @@ jobs:
     # 您可以
     - name: Display ssrq
       run: python srq.py
+    - name: Display srq
+      run: python srq("sh603005")
