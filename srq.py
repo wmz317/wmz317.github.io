@@ -31,5 +31,6 @@ def srq(s):
     return print(t)
 
 ssrq()
+print('\n')
 srq("sh603005"); 
 srq("sz128113")
