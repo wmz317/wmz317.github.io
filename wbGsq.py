@@ -15,8 +15,8 @@ max_page = 1
 def get_page(page):
     params = {
         'type': 'uid',
-        'value': '2369080114',
-        'containerid': '1005052369080114',
+        'value': '5687069307',
+        'containerid': '1076035687069307',
         'page': page
     }
     url = base_url + urlencode(params) #合成完整的URL
@@ -37,7 +37,7 @@ def parse_page(json, page: int):
                 item = item.get('mblog', {})
                 weibo = {}
                 weibo['id'] = item.get('id')
-                weibo['Time'] =item.get('created_at')
+                weibo['创建'] =item.get('created_at')
                 weibo['正文'] = pq(item.get('text')).text() #借助pyquery去掉正文中的HTML
                 #weibo['点赞'] = item.get('attitudes_count')
                 #weibo['评论'] = item.get('comments_count')
@@ -47,8 +47,9 @@ def parse_page(json, page: int):
 if __name__ == '__main__':
     for page in range(1, max_page + 1):
         json = get_page(page)
-        results = parse_page(*json)        
+        results = parse_page(*json)
+       
         #doc=open("output.txt","a",encoding='utf8')
         for x in results:
             print(x)
-        #doc.close()  
+        #doc.close() 
