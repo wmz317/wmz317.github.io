@@ -36,8 +36,8 @@ def parse_page(json, page: int):
             else:
                 item = item.get('mblog', {})
                 weibo = {}
-                #weibo['id'] = item.get('id')
-                weibo['创建'] =item.get('created_at')
+                weibo['id'] = item.get('id')
+                weibo['Time'] =item.get('created_at')
                 weibo['正文'] = pq(item.get('text')).text() #借助pyquery去掉正文中的HTML
                 #weibo['点赞'] = item.get('attitudes_count')
                 #weibo['评论'] = item.get('comments_count')
