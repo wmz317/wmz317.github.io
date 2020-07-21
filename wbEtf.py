@@ -48,6 +48,6 @@ if __name__ == '__main__':
         json = get_page(page)
         results = parse_page(*json)
         #doc=open("output.txt","a",encoding='utf8')
-        for result in results:
-            print(result)
+        for x in results:
+            print(x)
         #doc.close()  
