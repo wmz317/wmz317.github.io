@@ -16,6 +16,8 @@ jobs:
         python-version: '3.x' 
         # 可选 - x64 或 x86 架构，默认为 x64
         architecture: 'x64' 
-    # 您可以打印当前 Python 版本以测试矩阵
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip requests time
+    # 您可以
     - name: Display ssrq
       run: python srq.py
