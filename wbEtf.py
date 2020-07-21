@@ -36,7 +36,7 @@ def parse_page(json, page: int):
             else:
                 item = item.get('mblog', {})
                 weibo = {}
-                #weibo['id'] = item.get('id')
+                weibo['id'] = item.get('id')
                 weibo['创建'] =item.get('created_at')
                 weibo['正文'] = pq(item.get('text')).text() #借助pyquery去掉正文中的HTML
                 #weibo['点赞'] = item.get('attitudes_count')
@@ -48,8 +48,7 @@ if __name__ == '__main__':
     for page in range(1, max_page + 1):
         json = get_page(page)
         results = parse_page(*json)
-        nm = str(type(results))
-        print("Number_of_WBs:"+ nm)
+       
         #doc=open("output.txt","a",encoding='utf8')
         for x in results:
             print(x)
