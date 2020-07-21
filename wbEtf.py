@@ -47,7 +47,7 @@ if __name__ == '__main__':
     for page in range(1, max_page + 1):
         json = get_page(page)
         results = parse_page(*json)
-        nm=len(results)
+        nm=type(results)
         print("Number_of_WBs:"+ nm)
         #doc=open("output.txt","a",encoding='utf8')
         for x in results:
