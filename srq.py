@@ -27,10 +27,10 @@ def srq(s):
     max= lst[4]
     min= lst[5]
     ratio = int((float(now)/float(yest)-1)*10000)/100
-    t=s+'== now:'+now+';max:'+max+'; min:'+min+ "; r:"+str(ratio)
+    t=s+'== now:'+now+'; max:'+max+';min:'+min+ "; r:"+str(ratio)
     return print(t)
 
 ssrq()
-print('\n')
+# print('\n')
 srq("sh603005"); 
 srq("sz128113")
