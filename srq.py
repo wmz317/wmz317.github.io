@@ -2,9 +2,6 @@ from requests import get
 # import requests
 import time
 
-srq("sh510500")
-ssrq()
-
 def ssrq():
     a500='sh510500'
     a300='sh510300'
@@ -32,3 +29,5 @@ def srq(s):
     ratio = int((float(now)/float(yest)-1)*10000)/100
     t=s+'== now:'+now+';max:'+max+'; min:'+min+ "; r:"+str(ratio)
     return print(t)
+
+ssrq()
