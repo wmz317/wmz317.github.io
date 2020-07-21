@@ -20,5 +20,6 @@ jobs:
       run: python -m pip install requests
     # 您可以
     - name: Display ssrq
-      run: python srq.py
-      run: python -c "srq("sh603005");srq("sz128113")"
+      run: |
+       python srq.py
+       python -c "srq("sh603005"); srq("sz128113")"
