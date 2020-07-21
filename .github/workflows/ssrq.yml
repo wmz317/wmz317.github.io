@@ -22,4 +22,4 @@ jobs:
     - name: Display ssrq
       run: python srq.py
     - name: Display srq
-      run: python srq("sh603005")
+      run: python -c "srq("sh603005");srq("sz128113")"
