@@ -67,9 +67,8 @@ if __name__ == '__main__':
     for page in range(1, max_page + 1):
         json = get_page(page)
         results = parse_page(*json)
-        #doc=open("output.txt","a",encoding='utf8')
-        print(type(results))
-        for x in results:
-            print(type(x))
+        #doc=open("output.txt","a",encoding='utf8')        
+        for x in results:            
             print(x)
+            wbId2Text1(x['id'])
         #doc.close()  
