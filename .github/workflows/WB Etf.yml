@@ -1,6 +1,8 @@
 name: WB ETFWorld
 
-on: [push]
+on:
+  watch:
+    types: started
 
 jobs:
   build:
