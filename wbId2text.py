@@ -1,6 +1,4 @@
-
 from urllib.parse import urlencode
-from pyquery import PyQuery as pq
 from requests import get
 import json
 
@@ -70,6 +68,7 @@ if __name__ == '__main__':
         json = get_page(page)
         results = parse_page(*json)
         #doc=open("output.txt","a",encoding='utf8')
+        print(type(results))
         for x in results:
             print(x)
         #doc.close()  
