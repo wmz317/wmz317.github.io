@@ -1,5 +1,51 @@
+
+from urllib.parse import urlencode
+from pyquery import PyQuery as pq
 from requests import get
 import json
+
+base_url = 'https://m.weibo.cn/api/container/getIndex?'
+headers = {
+    'Host': 'm.weibo.cn',
+    'Referer': 'https://m.weibo.cn/u/5687069307',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+    'X-Requested-With': 'XMLHttpRequest', #设置请求为Ajax
+}
+max_page = 1
+
+#模拟Ajax请求
+def get_page(page):
+    params = {
+        'type': 'uid',
+        'value': '5687069307',
+        'containerid': '1076035687069307',
+        'page': page
+    }
+    url = base_url + urlencode(params) #合成完整的URL
+    try:
+        response = get(url, headers=headers)
+        if response.status_code == 200: #判断响应的状态码
+            return response.json(), page
+    except requests.ConnectionError as e:
+        print('Error', e.args)
+
+#解析并提取信息
+def parse_page(json, page: int):
+    if json:
+        items = json.get('data').get('cards')
+        for index, item in enumerate(items):
+            if page == 1 and index == 1:
+                continue
+            else:
+                item = item.get('mblog', {})
+                weibo = {}
+                #weibo['id'] = item.get('id')
+                idx=item.get('id')
+                print(idx)
+                weibo['time'] =item.get('created_at')
+                weibo['正文'] = wbId2Text1(idx）
+                #weibo['正文'] = pq(item.get('text')).text() #借助pyquery去掉正文中的HTML              
+                yield weibo
 
 def wbId2Text1(id='4529065535736168'):
     id=str(id)
@@ -13,14 +59,32 @@ def wbId2Text1(id='4529065535736168'):
         #print("编码异常")
         txt=["此条编码异常..."]
     except:
-        print("编码或未知异常")
-        
+        print("编码或未知异常")        
     
     for i in txt: print('>>'+i)
     print('**************分隔符******************')
 
+def id_text(id):
+    idurl = 'https://m.weibo.cn/detail/' + str(id)
+    headers1 = {
+    'Host': 'm.weibo.cn',
+    'Referer': idurl,
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+    'X-Requested-With': 'XMLHttpRequest', #设置请求为Ajax
+}
 
-#wbId2Text1()
-# 特例故障u1='https://m.weibo.cn/statuses/extend?id=4529178461872473'
-# 正常例子 url='https://m.weibo.cn/statuses/extend?id=4529065535736168'
+    try:
+        response = get(idurl, headers=headers1)
+        if response.status_code == 200: #判断响应的状态码
+            return response.json(), page
+    except requests.ConnectionError as e:
+        print('Error', e.args)
 
+if __name__ == '__main__':
+    for page in range(1, max_page + 1):
+        json = get_page(page)
+        results = parse_page(*json)
+        #doc=open("output.txt","a",encoding='utf8')
+        for x in results:
+            print(x)
+        #doc.close()  
