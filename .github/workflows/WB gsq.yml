@@ -1,6 +1,8 @@
 name: WB gsp
 
-on: [push]
+on:
+  watch:
+    types: started
 
 jobs:
   build:
