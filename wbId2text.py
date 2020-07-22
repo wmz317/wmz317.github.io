@@ -59,7 +59,7 @@ def wbId2Text1(id='4529065535736168'):
     except:
         print("编码或未知异常")        
     
-    for i in txt: print('>>'+i)
+    for i in txt: print('>>>'+i)
     print('**************分隔符******************')
 
 
@@ -68,7 +68,8 @@ if __name__ == '__main__':
         json = get_page(page)
         results = parse_page(*json)
         #doc=open("output.txt","a",encoding='utf8')        
-        for x in results:            
-            print(x)
-            wbId2Text1(x['id'])
+        for x in results:
+            if x['id']!='4360655919977273':
+              print(x)
+              wbId2Text1(x['id'])
         #doc.close()  
