@@ -70,5 +70,6 @@ if __name__ == '__main__':
         #doc=open("output.txt","a",encoding='utf8')
         print(type(results))
         for x in results:
+            print(type(x))
             print(x)
         #doc.close()  
