@@ -15,8 +15,8 @@ max_page = 1
 def get_page(page):
     params = {
         'type': 'uid',
-        'value': '5687069307',
-        'containerid': '1076035687069307',
+        'value': '2369080114',
+        'containerid': '1076032369080114',
         'page': page
     }
     url = base_url + urlencode(params) #合成完整的URL
