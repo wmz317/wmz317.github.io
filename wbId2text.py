@@ -37,11 +37,8 @@ def parse_page(json, page: int):
             else:
                 item = item.get('mblog', {})
                 weibo = {}
-                weibo['id'] = item.get('id')
-                #idx=item.get('id')
-                #print(idx)
-                weibo['time'] =item.get('created_at')
-                #weibo['正文'] = wbId2Text1(idx）
+                weibo['time'] =item.get('created_at') 
+                weibo['id'] = item.get('id')                               
                 #weibo['正文'] = pq(item.get('text')).text() #借助pyquery去掉正文中的HTML              
                 yield weibo
 
@@ -57,10 +54,10 @@ def wbId2Text1(id='4529065535736168'):
         #print("编码异常")
         txt=["此条编码异常..."]
     except:
-        print("编码或未知异常")        
+        print("未知异常")        
     
-    for i in txt: print('>>>'+i)
-    print('**************分隔符******************')
+    for i in txt: print('>>> '+i)
+    print('---------------------------------------------------分隔符----------------------------------------------')
 
 
 if __name__ == '__main__':
