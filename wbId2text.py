@@ -64,21 +64,6 @@ def wbId2Text1(id='4529065535736168'):
     for i in txt: print('>>'+i)
     print('**************分隔符******************')
 
-def id_text(id):
-    idurl = 'https://m.weibo.cn/detail/' + str(id)
-    headers1 = {
-    'Host': 'm.weibo.cn',
-    'Referer': idurl,
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
-    'X-Requested-With': 'XMLHttpRequest', #设置请求为Ajax
-}
-
-    try:
-        response = get(idurl, headers=headers1)
-        if response.status_code == 200: #判断响应的状态码
-            return response.json(), page
-    except requests.ConnectionError as e:
-        print('Error', e.args)
 
 if __name__ == '__main__':
     for page in range(1, max_page + 1):
