@@ -26,4 +26,5 @@ jobs:
     - name: Show wb id text
       run: |
        python wbTest.py
+       python wbGsl.py
        python -c "print('successfull')"  
