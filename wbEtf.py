@@ -51,8 +51,8 @@ def wbId2Text1(id='4529065535736168'):
         text= jsn.encode('latin-1').decode('unicode_escape')
         txt=text.split('"')[9].split("<br \/><br \/>")
     except UnicodeEncodeError:
-        #print("编码异常")
-        txt=["此条编码异常"]
+        print("编码异常")
+        txt=["此条编码异常",'error']
     except:
         print("未知异常")        
     
