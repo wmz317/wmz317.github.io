@@ -52,11 +52,11 @@ def wbId2Text1(id='4529065535736168'):
         txt=text.split('"')[9].split("<br \/><br \/>")
     except UnicodeEncodeError:
         print("编码异常")
-        txt=["此条编码异常",'error']
+        txt=['此条编码异常']
     except:
         print("未知异常")        
     
-    for i in txt: print('>>> '+i)
+    for i in txt: print('>>> '+str(i))
     print('-------------------------------------------------------------------------------------------------')
 
 
