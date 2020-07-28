@@ -58,7 +58,7 @@ def wbId2Text1(id='4529065535736168'):
     try:
         for i in txt: print('>>> '+str(i))
     except:
-        print("未知异常")
+        print("未知异常XXXXXXXXXXXXXXXXXXXXX")
     print('-------------------------------------------------------------------------------------------------')
 
 
