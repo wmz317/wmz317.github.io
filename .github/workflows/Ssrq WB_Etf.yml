@@ -28,6 +28,8 @@ jobs:
        python srq.py
        python -c "print('successfull')"
     - name: show WBs-ETF
-      run: python wbEtf.py
+      run: |
+        python wbEtf.py
+        python -c "print('============================================')"
     - name: show WBs-Gsq
       run: python wbGsq.py
