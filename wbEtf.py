@@ -50,13 +50,15 @@ def wbId2Text1(id='4529065535736168'):
     try:
         text= jsn.encode('latin-1').decode('unicode_escape')
         txt=text.split('"')[9].split("<br \/><br \/>")
-    except UnicodeEncodeError:
-        print("编码异常")
+    except UnicodeEncodeError:        
         txt=['此条编码异常']
     except:
         print("未知异常")        
     
-    for i in txt: print('>>> '+str(i))
+    try:
+        for i in txt: print('>>> '+str(i))
+    except:
+        print("未知异常")
     print('-------------------------------------------------------------------------------------------------')
 
 
