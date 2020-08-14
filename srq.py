@@ -8,7 +8,9 @@ def ssrq():
     cy50='sz159949'
     ic = 'sz159995'
     lsts=[a300,a500,cy50,ic]
-    nw= time.strftime('%m/%d %H:%M:%S ',time.localtime(time.time()))
+    # nw= time.strftime('%m/%d %H:%M:%S ',time.localtime(time.time()))
+    # 远程执行显示的是UTC时间，需要加8
+    nw= time.strftime('%m/%d %H:%M:%S ',time.localtime(time.time()+28800))
     print("300+500+C50+IC"+" | "+nw)
     for i in lsts: srq(i)
 
