@@ -1,8 +1,7 @@
 name: Quote HQ
 
 on:
-  schedule:    
-    - cron:  '48,50 * * * 1-5'
+  push
 
 jobs:
   build:
@@ -22,7 +21,6 @@ jobs:
       run: |
        python -m pip install --upgrade pip requests
        python -m pip install --upgrade pip pyquery
-       #python -m pip install --upgrade pip datetime
        python -m pip install --upgrade pip openpyxl
     # Actions
     - name: XQ_Quote
