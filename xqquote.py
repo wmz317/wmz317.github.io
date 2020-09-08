@@ -11,27 +11,6 @@ import smtplib
 2 存入xlsx
 3 email send out
 '''
-# 打开xls文件准备写入
-#dirname = "C:\\Users\\SR\\desktop\\QntA\\" # 本地存储
-nowTime = datetime.datetime.now().strftime('_%m%d%H%M')
-file_name = '511380Quote'+nowTime+'.xlsx'
-# workbook = openpyxl.load_workbook(dirname + filename)
-wb = openpyxl.Workbook() #新建工作簿（也自动生成1个工作表'Sheet'）
-#ws = wb.create_sheet() # 新建工作表依序'Sheet1'
-ws = wb["Sheet"]
-ws.title= '511380'+nowTime
-
-# 工作表第一行名称写入
-dataTitle=['time','current价格','premium_Rate','volume成交量','total_shares总份额','market_capital总净值','iopv']
-for c in range(len(dataTitle)):
-    ws.cell(1,c+1,dataTitle[c])
- 
-# 保存数据到指定位置
-#wb.save(dirname+file_name) # 本地存储
-wb.save(file_name) #远端存储
-sendmail(fime_name)
-print('任务完成')
-    
 def sendmail(file_name):
     # smtp setup
     smtp_server = 'smtp.163.com'
@@ -63,3 +42,24 @@ def sendmail(file_name):
     except Exception as e:
         print('出现错误：',e)
         print("邮件发送失败") 
+
+# 打开xls文件准备写入
+#dirname = "C:\\Users\\SR\\desktop\\QntA\\" # 本地存储
+nowTime = datetime.datetime.now().strftime('_%m%d%H%M')
+file_name1 = '511380Quote'+nowTime+'.xlsx'
+# workbook = openpyxl.load_workbook(dirname + file_name1)
+wb = openpyxl.Workbook() #新建工作簿（也自动生成1个工作表'Sheet'）
+#ws = wb.create_sheet() # 新建工作表依序'Sheet1'
+ws = wb["Sheet"]
+ws.title= '511380'+nowTime
+
+# 工作表第一行名称写入
+dataTitle=['time','current价格','premium_Rate','volume成交量','total_shares总份额','market_capital总净值','iopv']
+for c in range(len(dataTitle)):
+    ws.cell(1,c+1,dataTitle[c])
+ 
+# 保存数据到指定位置
+#wb.save(dirname+file_name1) # 本地存储
+wb.save(file_name1) #远端存储
+sendmail(fime_name1)
+print('任务完成')
