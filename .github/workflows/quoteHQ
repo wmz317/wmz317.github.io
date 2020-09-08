@@ -2,7 +2,7 @@ name: Quote HQ
 
 on:
   schedule:    
-    - cron:  '24,46 9,14 * * 1-5'
+    - cron:  '48,50 * * * 1-5'
 
 jobs:
   build:
