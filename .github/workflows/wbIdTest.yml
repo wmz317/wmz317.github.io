@@ -1,8 +1,7 @@
 name: wbIdTest
 
 on:
-  watch:
-    types: started
+  push
 
 jobs:
   wbTestEtf:
