@@ -1,7 +1,8 @@
 name: Quote HQ
 
 on:
-  push
+  watch:
+    types: started
 
 jobs:
   QuoteHQ:
