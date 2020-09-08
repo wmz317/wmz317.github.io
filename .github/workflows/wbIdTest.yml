@@ -1,7 +1,8 @@
 name: wbIdTest
 
 on:
-  push
+  schedule:    
+    - cron:  '01,30 11,14 * * 1-5'
 
 jobs:
   wbTestEtf:
