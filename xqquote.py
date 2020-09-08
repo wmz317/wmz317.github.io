@@ -60,6 +60,6 @@ def sendmail(file_name):
         server.sendmail(from_addr, [to_addr], message.as_string())
         print("邮件发送成功")
         server.quit()  # 关闭连接
-    except: Exception:
-        print(traceback.print_exc())
+    except Exception as e:
+        print('出现错误：',e)
         print("邮件发送失败") 
