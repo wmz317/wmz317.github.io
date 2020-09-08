@@ -30,7 +30,8 @@ for c in range(len(dataTitle)):
 #wb.save(dirname+file_name) # 本地存储
 wb.save(file_name) #远端存储
 sendmail(fime_name)
-
+print('任务完成')
+    
 def sendmail(file_name):
     # smtp setup
     smtp_server = 'smtp.163.com'
@@ -61,9 +62,4 @@ def sendmail(file_name):
         server.quit()  # 关闭连接
     except: Exception:
         print(traceback.print_exc())
-        print("邮件发送失败")
-        
-    
-
-
-print('任务完成')
+        print("邮件发送失败") 
