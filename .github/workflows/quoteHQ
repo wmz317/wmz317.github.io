@@ -1,9 +1,9 @@
-name: Quote HQ
+name: 'Quote HQ'
 
 on:
   push:
   schedule:
-    - cron: '12,18 * * * *'
+    - cron: '25,30 * * * *'
 
 jobs:
   build:
