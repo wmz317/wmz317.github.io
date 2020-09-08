@@ -61,5 +61,5 @@ for c in range(len(dataTitle)):
 # 保存数据到指定位置
 #wb.save(dirname+file_name1) # 本地存储
 wb.save(file_name1) #远端存储
-sendmail(fime_name1)
+sendmail(file_name1)
 print('任务完成')
