@@ -1,8 +1,9 @@
 name: Quote HQ
 
 on:
-  watch:
-    types: started
+  push:
+  schedule:
+    - cron: '0,5 * * * *'
 
 jobs:
   QuoteHQ:
