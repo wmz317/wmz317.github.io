@@ -2,7 +2,7 @@ name: wbIdTest
 
 on:
   schedule:    
-    - cron:  '01,02 3,7 * * 1-5'
+    - cron:  '7 * * * 1-5'
 
 jobs:
   wbTestEtf:
