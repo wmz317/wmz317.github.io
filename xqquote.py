@@ -7,9 +7,7 @@ from email.mime.multipart import MIMEMultipart
 from email.header import Header
 import smtplib
 '''
-1 定时-获取数据
-2 存入xlsx
-3 email send out
+1 定时-获取数据,2 存入xlsx,3 email send out
 '''
 def sendmail(file_name):
     # smtp setup
