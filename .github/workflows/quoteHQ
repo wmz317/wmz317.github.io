@@ -1,8 +1,10 @@
 name: Quote HQ
 
+#on:
+  #push
 on:
-  watch:
-    types: started
+  schedule:    
+    - cron:  '24,59 9,12 * * 1-5'
 
 jobs:
   build:
@@ -24,7 +26,7 @@ jobs:
        python -m pip install --upgrade pip pyquery
        python -m pip install --upgrade pipdatetime
     # Actions
-    - name: Display Ssrq
+    - name: XQ_Quote
       run: |
        python xqquote.py
        python -c "print('successfull')"
