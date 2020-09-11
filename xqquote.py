@@ -11,7 +11,7 @@ from email.header import Header
 import smtplib
 
 sCode='SH511380'
-statuscode=1  # 默认5，调试可按不同状态
+statuscode=5  # 默认5，调试可按不同状态
 
 def sendml(file_name):
     # smtp setup
@@ -92,7 +92,7 @@ print('已创建表头')
 
 # 循环获取数据并写入xls
 
-for i in range(0,3):
+for i in range(0,6000):
     # get HQ quote data
     try: 
         a1 = session.get(url=url,headers=headers).json()
