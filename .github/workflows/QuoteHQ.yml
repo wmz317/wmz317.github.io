@@ -2,11 +2,10 @@ name: QuoteHQ
 
 on:
   schedule:    
-    - cron:  '6 * * * *'
+    - cron:  '14 * * * *'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -24,10 +23,6 @@ jobs:
        python -m pip install --upgrade pip pyquery
        python -m pip install --upgrade pip openpyxl
     # Actions
-    - name: Display Ssrq
-      run: |
-       python srq.py
-       python -c "print('successfull')"
     - name: QuoteXQ
       run: |
         python xqquote.py
