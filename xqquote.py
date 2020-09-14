@@ -59,25 +59,24 @@ def sendml(file_name):
 
 def quoteData(a1_Pre):
     try: 
-        a1 = session.get(url=url,headers=headers).json()        
+        a1 = session.get(url=url,headers=headers).json()
+        a2 = a1['data']['quote'] #主要数据[字典]     
+        return a1,a2
     except Exception as e:
         print('报错1：',e)
         a1=a1_Pre
-        a1['error_code']=e #有故障时使用前一次数据，并把故障备注
-        
-    a2 = a1['data']['quote'] #主要数据[字典]
-    return a1,a2
-    
+        a1['error_code']=e #有故障时使用前一次数据，并把故障备注        
+       
 def quote5dang(a51_Pre):
     try:
-        a51 = session.get(url=url2,headers=headers).json()        
+        a51 = session.get(url=url2,headers=headers).json()
+        a52 = a51['data'] #主要数据[字典]
+        return a51,a52
     except Exception as e:
         print('报错2：',e)
         a51=a51_Pre
         a51['error_code']=e #有故障时使用前一次数据，并把故障备注
-    a52 = a51['data'] #主要数据[字典]
-    return a51,a52
-
+    
 def WrtXls(a1,a2,a51,a52,rows):
     n=0
     for v in Title_quote:
