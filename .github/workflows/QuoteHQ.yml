@@ -2,7 +2,7 @@ name: QuoteHQxq
 
 on:
   schedule:    
-    - cron:  '*/2 * * * *'
+    - cron:  '15 1 * * 1-5'
 
 jobs:
   build:
@@ -28,3 +28,4 @@ jobs:
     - name: Quote_HQ
       run: |
         python xqquote.py
+        python -c "print('workflow successfull')"
