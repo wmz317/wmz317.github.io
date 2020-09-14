@@ -28,9 +28,9 @@ def sendml(file_name):
     to_addr = 'wmz_317@sina.com'
     #生成一个空的带附件的邮件实例
     message = MIMEMultipart()
-    title = 'Py xls Mail Test' 
+    title = '当日380数据'+datetime.datetime.now().strftime('%y%m%d%H%M') 
     message['Subject'] = title
-    content = '本文发送时间：'+ datetime.datetime.now().strftime('%y%m%d%H%M')
+    content = '请查收今日数据'+ datetime.datetime.now().strftime('%y%m%d%H%M')
     #将正文以text的形式插入邮件中
     message.attach(MIMEText(content, 'plain', 'utf-8'))
     #读取附件的内容
