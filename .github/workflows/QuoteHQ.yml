@@ -1,8 +1,8 @@
-name: QuoteHQ
+name: QuoteHQxq
 
 on:
   schedule:    
-    - cron:  '14 * * * *'
+    - cron:  '*/5 * * * *'
 
 jobs:
   build:
