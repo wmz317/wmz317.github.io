@@ -30,7 +30,7 @@ def sendml(file_name):
     message = MIMEMultipart()
     title = '当日380数据'+datetime.datetime.now().strftime('%y%m%d%H%M') 
     message['Subject'] = title
-    content = '请查收今日数据'+ datetime.datetime.now().strftime('%y%m%d%H%M')
+    content = 'Dear C, 请查收今日数据'+ datetime.datetime.now().strftime('%y%m%d%H%M')
     #将正文以text的形式插入邮件中
     message.attach(MIMEText(content, 'plain', 'utf-8'))
     #读取附件的内容
@@ -41,10 +41,16 @@ def sendml(file_name):
     #将附件内容插入邮件中
     message.attach(att)
     
+    #下面3条是防止发送失败的：加header,
+    message['Subject'] = Header(title, 'utf-8')
+    #可能的报错原因是因为“发件人和收件人参数没有进行定义
+    message['from'] = from_addr
+    message['to'] = to_addr
+    
     try:
         server = smtplib.SMTP_SSL(smtp_server, 465) # 启用SSL发信, 端口一般是465
         server.login(usr, ps)
-        server.sendmail(from_addr, [to_addr], message.as_string())
+        server.sendmail(from_addr, [from_addr,to_addr], message.as_string()) # 把自己也加入收件人，防止报错
         print("邮件发送成功")
         server.quit()  # 关闭连接
     except Exception as e:
