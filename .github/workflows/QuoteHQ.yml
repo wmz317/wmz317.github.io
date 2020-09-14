@@ -2,7 +2,7 @@ name: QuoteHQxq
 
 on:
   schedule:    
-    - cron:  '*/5 * * * *'
+    - cron:  '*/2 * * * *'
 
 jobs:
   build:
@@ -23,6 +23,8 @@ jobs:
        python -m pip install --upgrade pip pyquery
        python -m pip install --upgrade pip openpyxl
     # Actions
-    - name: QuoteXQ
+    - name: show WBs-Gsq
+      run: python wbGsq.py
+    - name: Quote_HQ
       run: |
         python xqquote.py
