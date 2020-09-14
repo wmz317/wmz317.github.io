@@ -65,7 +65,8 @@ def quoteData(a1_Pre):
     except Exception as e:
         print('报错1：',e)
         a1=a1_Pre
-        a1['error_code']=e #有故障时使用前一次数据，并把故障备注        
+        a1['error_code']=e #有故障时使用前一次数据，并把故障备注
+        return a1, a1['data']['quote'] #有故障时返回前值，避免错误退出
        
 def quote5dang(a51_Pre):
     try:
@@ -76,6 +77,7 @@ def quote5dang(a51_Pre):
         print('报错2：',e)
         a51=a51_Pre
         a51['error_code']=e #有故障时使用前一次数据，并把故障备注
+        return a51, a51['data'] #有故障时返回前值，避免错误退出
     
 def WrtXls(a1,a2,a51,a52,rows):
     n=0
