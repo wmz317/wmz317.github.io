@@ -121,8 +121,8 @@ def mainFun():
     HQstatus =a1['data']['market']['status_id']
 
     # 2 建立excel表格,写入表头
-    nowTime = datetime.datetime.now().strftime('_%m%d_%H%M')
-    file_name1 = sCode+'_Quote'+nowTime+'.xlsx'
+    nowTime = datetime.datetime.now().strftime('_%m%d')
+    file_name1 = sCode+'分笔'+nowTime+'.xlsx'
     wb = openpyxl.Workbook() #新建工作簿（也自动生成1个工作表'Sheet'）
     ws = wb["Sheet"]
     ws.title= sCode+nowTime
