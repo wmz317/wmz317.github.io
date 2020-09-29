@@ -22,6 +22,7 @@ jobs:
        python -m pip install --upgrade pip requests
        python -m pip install --upgrade pip pyquery
        python -m pip install --upgrade pip openpyxl
+       python -m pip install --upgrade pip pytdx
     # Actions
     - name: show WBs-Gsq
       run: python wbGsq.py
