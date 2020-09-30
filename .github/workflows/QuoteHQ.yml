@@ -2,7 +2,7 @@ name: QuoteHQxq
 
 on:
   schedule:    
-    - cron:  '20 3 * * 1-5'
+    - cron:  '28 3 * * 1-5'
 
 jobs:
   build:
