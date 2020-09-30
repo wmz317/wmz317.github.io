@@ -2,7 +2,7 @@ name: QuoteHQxq
 
 on:
   schedule:    
-    - cron:  '28 3 * * 1-5'
+    - cron:  '15 1 * * 1-5'
   watch:
     types: started
 
@@ -26,8 +26,6 @@ jobs:
        python -m pip install --upgrade pip openpyxl
        python -m pip install --upgrade pip pytdx
     # Actions
-    - name: show WBs-Gsq
-      run: python wbGsq.py
     - name: Quote_HQ
       run: |
         python XqTdx_Quote.py
