@@ -135,8 +135,9 @@ def mainFun():
             try: #避免连接请求异常时退出
                 quot,MainCodeData = quote_TDX(ds_tuple)
                 break
-            except Exception as e:
-                print(e)
+            except Exception:
+                print('TDX连接异常')
+                time.sleep(1)
         ds_price_dict={}
         #a=quot[0]['price'] #注意KZZ quote price默认是乘了10，正好是1手
         for i in range(len(quot)):
