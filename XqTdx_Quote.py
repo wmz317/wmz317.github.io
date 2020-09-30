@@ -339,7 +339,14 @@ def mainFun():
 
 
 if __name__ == '__main__':
+    today_date = datetime.datetime.today().strftime('%m%d')
+    holidays=['0101','0501','0502','0503','0504','0505'
+          '1001','1002','1003','1004','1005','1006','1007','1008',
+          '以下明年更新','春节','清明节','端午节','中秋节']
     for i in range(0,3):
+            if today_date in holidays: #法定节假日退出
+                print('今天是法定节假日，再会')
+                break
             try:
                 successInd = mainFun()
             except Exception as e:
