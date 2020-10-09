@@ -291,7 +291,10 @@ def mainFun():
                 a1,a2 = quoteData(a1) # get HQ quote data
                 a51,a52= quote5dang(a51) # get 5dang data    
                 # 更改时间为易读格式
-                timestr = time.strftime('%H:%M:%S ',time.localtime(a2['timestamp']/1000))
+                try:
+                    timestr = time.strftime('%H:%M:%S ',time.localtime(a2['timestamp']/1000))
+                except Exception:
+                    print('获取XQ_quote数据错误')
                 a2['timestamp'] = timestr      
                 # 另+1网络实时时间
                 realtime = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
@@ -350,7 +353,7 @@ if __name__ == '__main__':
             try:
                 successInd = mainFun()
             except Exception as e:
-                print('第'+str(i+1)+'次,运行未成功，故障：'+ e)
+                print('第'+str(i+1)+'次,运行未成功，发生故障')
                 if SendMail==1:
                     file_list=os.listdir() #查找xlsx文件名
                     for x in file_list:
