@@ -3,8 +3,8 @@ name: QuoteHQxq
 on:
   schedule:    
     - cron:  '15 1 * * 1-5'
-  #watch:
-    #types: started
+  watch:
+    types: started
 
 jobs:
   build:
