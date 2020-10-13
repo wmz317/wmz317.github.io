@@ -355,6 +355,8 @@ if __name__ == '__main__':
                 successInd = mainFun()
             except Exception as e:
                 print('第'+str(i+1)+'次,运行未成功，发生故障')
+                print('TDX_quote'+str(quot[0]['price'])) #查看是否获取成功
+                print('TDX_quote1'+str(MainCodeData)) #查看是否获取成功
                 if SendMail==1:
                     file_list=os.listdir() #查找xlsx文件名
                     for x in file_list:
