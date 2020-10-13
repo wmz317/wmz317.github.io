@@ -347,7 +347,7 @@ if __name__ == '__main__':
           '1001','1002','1003','1004','1005','1006','1007','1008',
           '以下明年更新','春节','清明节','端午节','中秋节']
     successInd = 0 #赋初值，避免try没成功报错退出
-    for i in range(0,3):
+    for i in range(0,15):
             if today_date in holidays: #法定节假日退出
                 print('今天是法定节假日，再会')
                 break
@@ -355,8 +355,9 @@ if __name__ == '__main__':
                 successInd = mainFun()
             except Exception as e:
                 print('第'+str(i+1)+'次,运行未成功，发生故障')
-                print('TDX_quote'+str(quot[0]['price'])) #查看是否获取成功
-                print('TDX_quote1'+str(MainCodeData)) #查看是否获取成功
+                time.sleep(8)
+                #print('TDX_quote'+str(quot[0]['price'])) #查看是否获取成功
+                #print('TDX_quote1'+str(MainCodeData)) #查看是否获取成功
                 if SendMail==1:
                     file_list=os.listdir() #查找xlsx文件名
                     for x in file_list:
